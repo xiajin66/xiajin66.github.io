@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Hexo</title>
+  <title>阿里云部署web项目 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="1.前期准备1.注册购买阿里云服务器并且系统镜像安装CentOS获取外网ip 2.设置运行服务器访问的端口:mysql:3306,redis:6379,tomcat:8080 3.下载并安装 xshell 6 软件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="阿里云部署web项目">
+<meta property="og:url" content="http://yoursite.com/2019/08/01/阿里云部署web项目/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1.前期准备1.注册购买阿里云服务器并且系统镜像安装CentOS获取外网ip 2.设置运行服务器访问的端口:mysql:3306,redis:6379,tomcat:8080 3.下载并安装 xshell 6 软件">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-08-01T14:53:37.622Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="阿里云部署web项目">
+<meta name="twitter:description" content="1.前期准备1.注册购买阿里云服务器并且系统镜像安装CentOS获取外网ip 2.设置运行服务器访问的端口:mysql:3306,redis:6379,tomcat:8080 3.下载并安装 xshell 6 软件">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -144,103 +148,266 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-阿里云部署web项目" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      阿里云部署web项目
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/01/阿里云部署web项目/" class="archive-article-date">
+
+        
+        <a href="/2019/08/01/阿里云部署web项目/" class="archive-article-date">
   	<time datetime="2019-08-01T09:24:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-01</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/01/阿里云部署web项目/">阿里云部署web项目</a>
-    </h1>
-  
+        
+		
+		
+        <span class="archive-article-date">
+            本文阅读量 <span id="busuanzi_value_page_pv"></span>次
+        </span>
+    
+	
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-前期准备"><a href="#1-前期准备" class="headerlink" title="1.前期准备"></a>1.前期准备</h1><p>1.注册购买阿里云服务器并且系统镜像安装CentOS获取外网ip</p>
+<p>2.设置运行服务器访问的端口:mysql:3306,redis:6379,tomcat:8080</p>
+<p>3.下载并安装 xshell 6 软件</p>
+<a id="more"></a>
 
-        <div class="article-info info-on-right">
-          
-          
+<p>4.远程连接阿里云服务器</p>
+<p>5.安装CentOS前端软件包管理器yum</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install lrzsz</span><br></pre></td></tr></table></figure>
 
+<p>输入命令：<code>rz</code>启动文件上传 , <code>sz</code>启动文件下载。</p>
+<p>6.上传安装所需的压缩包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd usr/local/</span><br><span class="line">mkdir myApps</span><br></pre></td></tr></table></figure>
+
+<p>jdk-8u181-linux-x64.tar.gz</p>
+<p>MySQL-5.6.34-1.rhel5.x86_64.rpm-bundle.tar</p>
+<p>redis-4.0.1.tar.gz</p>
+<p>apache-tomcat-8.5.23.tar.gz</p>
+<h1 id="2-安装-Jdk"><a href="#2-安装-Jdk" class="headerlink" title="2.安装 Jdk"></a>2.安装 Jdk</h1><p>1、 进入myApps目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd usr/local/myApps</span><br></pre></td></tr></table></figure>
+
+<p>2、 将jdk-8u181-linux-x64.tar.gz拷贝到myApps目录下(用工具)</p>
+<p>用rz或者工具</p>
+<p>3、 解压</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar –zxvf jdk-8u181-linux-x64.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>4、 配置环境变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/profile</span><br></pre></td></tr></table></figure>
+
+<p>添加内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/usr/java/jdk1.7.0_71（当前解压jdk的路径）   </span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin   </span><br><span class="line">export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar   </span><br><span class="line">export JAVA_HOME   PATH CLASSPATH</span><br></pre></td></tr></table></figure>
+
+<p>5、 重新编译环境变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+
+<h1 id="3-安装Tomcat"><a href="#3-安装Tomcat" class="headerlink" title="3.安装Tomcat"></a>3.安装Tomcat</h1><p>1、进入myApps目录</p>
+<p>2、 上传apache-tomcat-7.0.57.tar.gz</p>
+<p>3、 解压</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf apache-tomcat-7.0.57.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>4、 启动tomcat：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd apache-tomcat-8.5.23/</span><br><span class="line">source /etc/profile</span><br><span class="line">cd bin</span><br><span class="line">./startup.sh</span><br></pre></td></tr></table></figure>
+
+<h1 id="4-安装-redis"><a href="#4-安装-redis" class="headerlink" title="4.安装 redis"></a>4.安装 redis</h1><p>1、进入myApps目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install gcc-c++</span><br></pre></td></tr></table></figure>
+
+<p>2、编译</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make MALLOC=libc</span><br></pre></td></tr></table></figure>
+
+<p>2、运行redis</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd src</span><br><span class="line">./redis-server</span><br></pre></td></tr></table></figure>
+
+<h1 id="5-安装-Mysql"><a href="#5-安装-Mysql" class="headerlink" title="5.安装 Mysql"></a>5.安装 Mysql</h1><p>1、先检查系统是否装有mysql</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep mysql</span><br></pre></td></tr></table></figure>
+
+<p>这里返回空值，说明没有安装</p>
+<p>2、删除centos-7默认安装的Mariadb</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">查看mariadb</span><br><span class="line">rpm -qa | grep mariadb</span><br><span class="line">卸载自身安装的mariadb</span><br><span class="line">rpm -e --nodeps mariadb-5.5.52-1.el7.x86_64</span><br></pre></td></tr></table></figure>
+
+<p>3、下载mysql的repo源</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm</span><br></pre></td></tr></table></figure>
+
+<p>安装mysql-community-release-el7-5.noarch.rpm包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># sudo rpm -ivh mysql-community-release-el7-5.noarch.rpm</span><br></pre></td></tr></table></figure>
+
+<p>4、安装mysql</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># sudo yum install mysql-server</span><br></pre></td></tr></table></figure>
+
+<p>5、重置密码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># mysql -u root</span><br><span class="line">mysql &gt; use mysql;</span><br><span class="line">mysql &gt; update user set password=password(&apos;123456&apos;) where user=&apos;root&apos;;</span><br><span class="line">mysql &gt; exit;</span><br></pre></td></tr></table></figure>
+
+<p>重启mysql服务后才生效 <code># service mysqld restart</code></p>
+<p>必要时加入以下命令行，为root添加远程连接的能力。链接密码为 “root”（不包括双引号）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; GRANT ALL PRIVILEGES ON *.* TO root@&quot;%&quot; IDENTIFIED BY &quot;root&quot;;</span><br></pre></td></tr></table></figure>
+
+<h1 id="6-部署javaweb项目"><a href="#6-部署javaweb项目" class="headerlink" title="6.部署javaweb项目"></a>6.部署javaweb项目</h1><p>1、删除tomcat中webapps中ROOT文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/myApps/apache-tomcat-8.5.23/webapps/</span><br><span class="line">rm -rf ROOT</span><br></pre></td></tr></table></figure>
+
+<p>2、上传ROOT.war包</p>
+<p>通过<code>rz</code>命令上传</p>
+
+      
+	   
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+	
+			
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/01/阿里云部署web项目/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/13/Mysql基础语句/" class="archive-article-date">
-  	<time datetime="2019-07-13T10:17:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-13</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/07/13/Mysql基础语句/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Mysql基础语句</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/13/Mysql基础语句/">Mysql基础语句</a>
-    </h1>
+  
+  
+  
+  <!-- ������City�氲װ���� -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80NTU5NS8yMjEwNg==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> Ϊ����ʹ�����������۹����뼤��JavaScript</noscript>
+</div>
+<!-- City�氲װ��������� -->
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/10/Hexo博客搭建/" class="archive-article-date">
-  	<time datetime="2019-07-10T03:02:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/10/Hexo博客搭建/">Hexo博客搭建</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -268,8 +435,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
