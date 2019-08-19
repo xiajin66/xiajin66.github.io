@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>AOP编程底层实现机制 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1、概述1、spring在运行期，生成动态代理对象，不需要特殊的编译器. 2、spring有两种代理方式：">
+  <meta name="description" content="1、概述1、spring在运行期，生成动态代理对象，不需要特殊的编译器.2、spring有两种代理方式：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AOP编程底层实现机制">
 <meta property="og:url" content="http://yoursite.com/2019/08/19/Spring的AOP编程底层实现机制/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1、概述1、spring在运行期，生成动态代理对象，不需要特殊的编译器. 2、spring有两种代理方式：">
+<meta property="og:description" content="1、概述1、spring在运行期，生成动态代理对象，不需要特殊的编译器.2、spring有两种代理方式：">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-19T03:23:47.815Z">
+<meta property="og:updated_time" content="2019-08-19T03:28:52.911Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AOP编程底层实现机制">
-<meta name="twitter:description" content="1、概述1、spring在运行期，生成动态代理对象，不需要特殊的编译器. 2、spring有两种代理方式：">
+<meta name="twitter:description" content="1、概述1、spring在运行期，生成动态代理对象，不需要特殊的编译器.2、spring有两种代理方式：">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -175,17 +175,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1、概述"><a href="#1、概述" class="headerlink" title="1、概述"></a>1、概述</h1><p>1、spring在运行期，生成动态代理对象，不需要特殊的编译器.</p>
-<p>2、spring有两种代理方式：</p>
-<a id="more"></a>
+        <h1 id="1、概述"><a href="#1、概述" class="headerlink" title="1、概述"></a>1、概述</h1><h4 id="1、spring在运行期，生成动态代理对象，不需要特殊的编译器"><a href="#1、spring在运行期，生成动态代理对象，不需要特殊的编译器" class="headerlink" title="1、spring在运行期，生成动态代理对象，不需要特殊的编译器."></a>1、spring在运行期，生成动态代理对象，不需要特殊的编译器.</h4><h4 id="2、spring有两种代理方式："><a href="#2、spring有两种代理方式：" class="headerlink" title="2、spring有两种代理方式："></a>2、spring有两种代理方式：</h4><a id="more"></a>
 
-<p>​    2.1 若目标对象实现了若干接口，spring使用JDK的<strong>java.lang.reflect.Proxy</strong>类代理。</p>
-<p>​    2.2 若目标对象没有实现任何接口，spring使用<strong>CGLIB</strong>库生成目标对象的子类。</p>
-<p>5、使用该方式时需要注意:</p>
-<p>​    5.1 对接口创建代理优于对类创建代理，spring推荐面向接口编程,因为这样会产生更加松耦合的系统，所以spring默认是使用JDK代理。 对类代理是让遗留系统或无法实现接口的第三方类库同样可以得到通知，这种方式应该是备用方案。</p>
-<p>​    5.2 标记为final的方法不能够被通知。spring是为目标类产生子类。任何需要被通知的方法都被复写，将通知织入。final方法是不允许重写的。</p>
-<p>3.spring只支持方法连接点：不提供属性接入点，spring的观点是属性拦截破坏了封装。 面向对象的概念是对象自己处理工作，其他对象只能通过方法调用的得到的结果。</p>
-<h1 id="2、JDK动态代理"><a href="#2、JDK动态代理" class="headerlink" title="2、JDK动态代理"></a>2、JDK动态代理</h1><p>创建一个需要增强的类(需要有接口)</p>
+<h5 id="2-1-若目标对象实现了若干接口，spring使用JDK的java-lang-reflect-Proxy类代理。"><a href="#2-1-若目标对象实现了若干接口，spring使用JDK的java-lang-reflect-Proxy类代理。" class="headerlink" title="2.1 若目标对象实现了若干接口，spring使用JDK的java.lang.reflect.Proxy类代理。"></a>2.1 若目标对象实现了若干接口，spring使用JDK的<strong>java.lang.reflect.Proxy</strong>类代理。</h5><h5 id="2-2-若目标对象没有实现任何接口，spring使用CGLIB库生成目标对象的子类。"><a href="#2-2-若目标对象没有实现任何接口，spring使用CGLIB库生成目标对象的子类。" class="headerlink" title="2.2 若目标对象没有实现任何接口，spring使用CGLIB库生成目标对象的子类。"></a>2.2 若目标对象没有实现任何接口，spring使用<strong>CGLIB</strong>库生成目标对象的子类。</h5><h4 id="3、使用该方式时需要注意"><a href="#3、使用该方式时需要注意" class="headerlink" title="3、使用该方式时需要注意:"></a>3、使用该方式时需要注意:</h4><h5 id="3-1-对接口创建代理优于对类创建代理，spring推荐面向接口编程-因为这样会产生更加松耦合的系统，所以spring默认是使用JDK代理。-对类代理是让遗留系统或无法实现接口的第三方类库同样可以得到通知，这种方式应该是备用方案。"><a href="#3-1-对接口创建代理优于对类创建代理，spring推荐面向接口编程-因为这样会产生更加松耦合的系统，所以spring默认是使用JDK代理。-对类代理是让遗留系统或无法实现接口的第三方类库同样可以得到通知，这种方式应该是备用方案。" class="headerlink" title="3.1 对接口创建代理优于对类创建代理，spring推荐面向接口编程,因为这样会产生更加松耦合的系统，所以spring默认是使用JDK代理。 对类代理是让遗留系统或无法实现接口的第三方类库同样可以得到通知，这种方式应该是备用方案。"></a>3.1 对接口创建代理优于对类创建代理，spring推荐面向接口编程,因为这样会产生更加松耦合的系统，所以spring默认是使用JDK代理。 对类代理是让遗留系统或无法实现接口的第三方类库同样可以得到通知，这种方式应该是备用方案。</h5><h5 id="3-2-标记为final的方法不能够被通知。spring是为目标类产生子类。任何需要被通知的方法都被复写，将通知织入。final方法是不允许重写的。"><a href="#3-2-标记为final的方法不能够被通知。spring是为目标类产生子类。任何需要被通知的方法都被复写，将通知织入。final方法是不允许重写的。" class="headerlink" title="3.2 标记为final的方法不能够被通知。spring是为目标类产生子类。任何需要被通知的方法都被复写，将通知织入。final方法是不允许重写的。"></a>3.2 标记为final的方法不能够被通知。spring是为目标类产生子类。任何需要被通知的方法都被复写，将通知织入。final方法是不允许重写的。</h5><h4 id="4-spring只支持方法连接点：不提供属性接入点，spring的观点是属性拦截破坏了封装。-面向对象的概念是对象自己处理工作，其他对象只能通过方法调用的得到的结果。"><a href="#4-spring只支持方法连接点：不提供属性接入点，spring的观点是属性拦截破坏了封装。-面向对象的概念是对象自己处理工作，其他对象只能通过方法调用的得到的结果。" class="headerlink" title="4.spring只支持方法连接点：不提供属性接入点，spring的观点是属性拦截破坏了封装。 面向对象的概念是对象自己处理工作，其他对象只能通过方法调用的得到的结果。"></a>4.spring只支持方法连接点：不提供属性接入点，spring的观点是属性拦截破坏了封装。 面向对象的概念是对象自己处理工作，其他对象只能通过方法调用的得到的结果。</h4><h1 id="2、JDK动态代理"><a href="#2、JDK动态代理" class="headerlink" title="2、JDK动态代理"></a>2、JDK动态代理</h1><p>创建一个需要增强的类(需要有接口)</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Duck</span>  </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">fly</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">quack</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DuckImpl</span> <span class="keyword">implements</span> <span class="title">Duck</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fly</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"鸭子在飞"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">quack</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"鸭子在叫"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>创建<strong>JdkProxyFactory</strong>代理工厂</p>
