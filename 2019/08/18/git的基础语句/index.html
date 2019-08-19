@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>阿里云部署web项目 | Hexo</title>
+  <title>git的基础使用 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.前期准备1.注册购买阿里云服务器并且系统镜像安装CentOS获取外网ip 2.设置运行服务器访问的端口:mysql:3306,redis:6379,tomcat:8080">
+  <meta name="description" content="1、添加文件并提交本地仓库初始化仓库 1git init">
 <meta property="og:type" content="article">
-<meta property="og:title" content="阿里云部署web项目">
-<meta property="og:url" content="http://yoursite.com/2019/08/01/阿里云部署web项目/index.html">
+<meta property="og:title" content="git的基础使用">
+<meta property="og:url" content="http://yoursite.com/2019/08/18/git的基础语句/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1.前期准备1.注册购买阿里云服务器并且系统镜像安装CentOS获取外网ip 2.设置运行服务器访问的端口:mysql:3306,redis:6379,tomcat:8080">
+<meta property="og:description" content="1、添加文件并提交本地仓库初始化仓库 1git init">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-19T01:26:49.753Z">
+<meta property="og:updated_time" content="2019-08-19T01:24:50.440Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="阿里云部署web项目">
-<meta name="twitter:description" content="1.前期准备1.注册购买阿里云服务器并且系统镜像安装CentOS获取外网ip 2.设置运行服务器访问的端口:mysql:3306,redis:6379,tomcat:8080">
+<meta name="twitter:title" content="git的基础使用">
+<meta name="twitter:description" content="1、添加文件并提交本地仓库初始化仓库 1git init">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -148,20 +148,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-阿里云部署web项目" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-git的基础语句" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      阿里云部署web项目
+      git的基础使用
     </h1>
   
 
         
-        <a href="/2019/08/01/阿里云部署web项目/" class="archive-article-date">
-  	<time datetime="2019-08-01T09:24:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-01</time>
+        <a href="/2019/08/18/git的基础语句/" class="archive-article-date">
+  	<time datetime="2019-08-18T13:26:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-18</time>
 </a>
         
 		
@@ -175,85 +175,43 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-前期准备"><a href="#1-前期准备" class="headerlink" title="1.前期准备"></a>1.前期准备</h1><p>1.注册购买阿里云服务器并且系统镜像安装CentOS获取外网ip</p>
-<p>2.设置运行服务器访问的端口:mysql:3306,redis:6379,tomcat:8080</p>
+        <h1 id="1、添加文件并提交本地仓库"><a href="#1、添加文件并提交本地仓库" class="headerlink" title="1、添加文件并提交本地仓库"></a>1、添加文件并提交本地仓库</h1><p>初始化仓库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+
 <a id="more"></a>
 
-<p>3.下载并安装 xshell 6 软件</p>
-<p>4.远程连接阿里云服务器</p>
-<p>5.安装CentOS前端软件包管理器yum</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install lrzsz</span><br></pre></td></tr></table></figure>
+<p>将文件修改添加到暂存区</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add 文件名</span><br></pre></td></tr></table></figure>
 
-<p>输入命令：<code>rz</code>启动文件上传 , <code>sz</code>启动文件下载。</p>
-<p>6.上传安装所需的压缩包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd usr/local/</span><br><span class="line">mkdir myApps</span><br></pre></td></tr></table></figure>
+<p>将暂存区的所有内容提交到本地仓库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &quot;注释&quot;</span><br></pre></td></tr></table></figure>
 
-<p>jdk-8u181-linux-x64.tar.gz</p>
-<p>MySQL-5.6.34-1.rhel5.x86_64.rpm-bundle.tar</p>
-<p>redis-4.0.1.tar.gz</p>
-<p>apache-tomcat-8.5.23.tar.gz</p>
-<h1 id="2-安装-Jdk"><a href="#2-安装-Jdk" class="headerlink" title="2.安装 Jdk"></a>2.安装 Jdk</h1><p>1、 进入myApps目录</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd usr/local/myApps</span><br></pre></td></tr></table></figure>
+<p>将工作区文件直接提交到本地仓库（修改stage）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -am &quot;注释&quot;</span><br></pre></td></tr></table></figure>
 
-<p>2、 将jdk-8u181-linux-x64.tar.gz拷贝到myApps目录下(用工具)</p>
-<p>用rz或者工具</p>
-<p>3、 解压</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar –zxvf jdk-8u181-linux-x64.tar.gz</span><br></pre></td></tr></table></figure>
+<h1 id="2、比较工作区-缓存区-本地仓库"><a href="#2、比较工作区-缓存区-本地仓库" class="headerlink" title="2、比较工作区/缓存区/本地仓库"></a>2、比较工作区/缓存区/本地仓库</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git diff readme.txt 	 		工作区与暂存区比较</span><br><span class="line">git diff HEAD readme.txt 		工作区与本地库比较</span><br><span class="line">git diff --cached readme.txt 	暂存区和本地库比较</span><br></pre></td></tr></table></figure>
 
-<p>4、 配置环境变量</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/profile</span><br></pre></td></tr></table></figure>
+<h1 id="3、版本控制和日志查看"><a href="#3、版本控制和日志查看" class="headerlink" title="3、版本控制和日志查看"></a>3、版本控制和日志查看</h1><p>1） 通过<strong>git log</strong> 或 <strong>git reflog</strong> 查看操作日志，查找版本的<strong>commit</strong> <strong>id</strong></p>
+<p>2） 通过 <strong>git reset –hard</strong> <strong><commit id></commit></strong> 设置<strong>HEAD</strong>到指定版本</p>
+<p>3）通过 <strong>git status</strong>  查看文件存在位置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">（1）--mixed：默认值，当重置分支所指向commit提交位置时，暂存区中的内容会被新指向的commit提交内容所替换，工作区内容不变。</span><br><span class="line"></span><br><span class="line">（2）--soft：暂存区和工作区的内容都保持原样，不会被替换。</span><br><span class="line"></span><br><span class="line">（3）--hard：暂存区和工作区的内容都会被新指向的commit提交内容所替换；git reset --hard只影响被跟踪的文件，如果工作区有新增的文件，并不会被影响</span><br></pre></td></tr></table></figure>
 
-<p>添加内容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/usr/java/jdk1.7.0_71（当前解压jdk的路径）   </span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin   </span><br><span class="line">export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar   </span><br><span class="line">export JAVA_HOME   PATH CLASSPATH</span><br></pre></td></tr></table></figure>
-
-<p>5、 重新编译环境变量</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
-
-<h1 id="3-安装Tomcat"><a href="#3-安装Tomcat" class="headerlink" title="3.安装Tomcat"></a>3.安装Tomcat</h1><p>1、进入myApps目录</p>
-<p>2、 上传apache-tomcat-7.0.57.tar.gz</p>
-<p>3、 解压</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf apache-tomcat-7.0.57.tar.gz</span><br></pre></td></tr></table></figure>
-
-<p>4、 启动tomcat：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd apache-tomcat-8.5.23/</span><br><span class="line">source /etc/profile</span><br><span class="line">cd bin</span><br><span class="line">./startup.sh</span><br></pre></td></tr></table></figure>
-
-<h1 id="4-安装-redis"><a href="#4-安装-redis" class="headerlink" title="4.安装 redis"></a>4.安装 redis</h1><p>1、进入myApps目录</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install gcc-c++</span><br></pre></td></tr></table></figure>
-
-<p>2、编译</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make MALLOC=libc</span><br></pre></td></tr></table></figure>
-
-<p>2、运行redis</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd src</span><br><span class="line">./redis-server</span><br></pre></td></tr></table></figure>
-
-<h1 id="5-安装-Mysql"><a href="#5-安装-Mysql" class="headerlink" title="5.安装 Mysql"></a>5.安装 Mysql</h1><p>1、先检查系统是否装有mysql</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep mysql</span><br></pre></td></tr></table></figure>
-
-<p>这里返回空值，说明没有安装</p>
-<p>2、删除centos-7默认安装的Mariadb</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">查看mariadb</span><br><span class="line">rpm -qa | grep mariadb</span><br><span class="line">卸载自身安装的mariadb</span><br><span class="line">rpm -e --nodeps mariadb-5.5.52-1.el7.x86_64</span><br></pre></td></tr></table></figure>
-
-<p>3、下载mysql的repo源</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm</span><br></pre></td></tr></table></figure>
-
-<p>安装mysql-community-release-el7-5.noarch.rpm包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># sudo rpm -ivh mysql-community-release-el7-5.noarch.rpm</span><br></pre></td></tr></table></figure>
-
-<p>4、安装mysql</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># sudo yum install mysql-server</span><br></pre></td></tr></table></figure>
-
-<p>5、重置密码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># mysql -u root</span><br><span class="line">mysql &gt; use mysql;</span><br><span class="line">mysql &gt; update user set password=password(&apos;123456&apos;) where user=&apos;root&apos;;</span><br><span class="line">mysql &gt; exit;</span><br></pre></td></tr></table></figure>
-
-<p>重启mysql服务后才生效 <code># service mysqld restart</code></p>
-<p>必要时加入以下命令行，为root添加远程连接的能力。链接密码为 “root”（不包括双引号）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; GRANT ALL PRIVILEGES ON *.* TO root@&quot;%&quot; IDENTIFIED BY &quot;root&quot;;</span><br></pre></td></tr></table></figure>
-
-<h1 id="6-部署javaweb项目"><a href="#6-部署javaweb项目" class="headerlink" title="6.部署javaweb项目"></a>6.部署javaweb项目</h1><p>1、删除tomcat中webapps中ROOT文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/myApps/apache-tomcat-8.5.23/webapps/</span><br><span class="line">rm -rf ROOT</span><br></pre></td></tr></table></figure>
-
-<p>2、上传ROOT.war包</p>
-<p>通过<code>rz</code>命令上传</p>
+<h1 id="4、撤销修改"><a href="#4、撤销修改" class="headerlink" title="4、撤销修改"></a>4、撤销修改</h1><p>1） 撤销工作区修改，使用<strong>git checkout</strong> <strong>– <file></file></strong></p>
+<p>2） 撤销暂存区修改，分两步：</p>
+<p>a) 使用<strong>git reset HEAD <file></file></strong>来撤销暂存区修改。</p>
+<p>b) 使用<strong>git checkout</strong> <strong>– <file></file></strong>来撤销工作区修改</p>
+<h1 id="5、远程仓库"><a href="#5、远程仓库" class="headerlink" title="5、远程仓库"></a>5、远程仓库</h1><p>1） 如果要使用SSH协议与远程仓库同步，就必须先在本地生成公钥和私钥，然后将公钥添加到远程的SSH列表 </p>
+<p>2） 如果已经有本地仓库，并且想要与远程仓库关联，一般需要两步：</p>
+<p>​    a) 通过<strong>git remote add origin</strong> + 远程仓库地址 进行关联</p>
+<p>​    b) 通过<strong>git push -u origin master</strong>推送本地仓库修改到远程仓库</p>
+<p>3）如果没有本地仓库，先创建远程仓库，然后通过<strong>git clone</strong> + 远程仓库地址 进行克隆并创建本地仓库 </p>
+<p>4）通过git pull 拉取远程仓库的最新内容到本地仓库</p>
+<p>5） 免密码：git config  credential.helper store</p>
+<h1 id="6、分支管理"><a href="#6、分支管理" class="headerlink" title="6、分支管理"></a>6、分支管理</h1><p>1） 使用<strong>git branch</strong> <strong>分支名</strong> 创建分支</p>
+<p>2） 使用<strong>git checkout</strong> <strong>分支名</strong> 来切换分支</p>
+<p>3） 也可以使用 <strong>git checkout -b</strong> <strong>分支名</strong> 来完成 创建并切换分支的操作</p>
+<p>4） 使用<strong>git merge</strong> <strong>分支名</strong> 来合并分支到当前分支</p>
+<p>5） 使用<strong>git branch -d</strong> <strong>分支名</strong> 来删除指定分支，注意：要删除一个未合并的分支。需要使用<strong>-D</strong>参数进行强制删除 </p>
 
       
 	   
@@ -335,7 +293,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/01/阿里云部署web项目/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/18/git的基础语句/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -349,18 +307,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/08/18/git的基础语句/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          git的基础使用
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/07/13/Mysql基础语句/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Mysql基础语句</div>
+    <a href="/2019/08/01/阿里云部署web项目/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">阿里云部署web项目</div>
       <i class="icon-circle-right"></i>
     </a>
   
