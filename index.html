@@ -146,6 +146,154 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Elasticsearch集群部署" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/19/Elasticsearch集群部署/">Elasticsearch集群部署</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/19/Elasticsearch集群部署/" class="archive-article-date">
+  	<time datetime="2019-09-19T06:45:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-19</time>
+</a>
+        
+		
+		
+	
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1、Elasticsearch的安装"><a href="#1、Elasticsearch的安装" class="headerlink" title="1、Elasticsearch的安装"></a>1、Elasticsearch的安装</h1><h3 id="1-1-上传Elasticsearch"><a href="#1-1-上传Elasticsearch" class="headerlink" title="1.1 上传Elasticsearch"></a>1.1 上传Elasticsearch</h3><p>上传安装包,并解压：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar xvf elasticsearch-6.2.4.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>我们把目录重命名：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv elasticsearch-6.2.4/ elasticsearch-01</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2019/09/19/Elasticsearch集群部署/#more">more >></a>
+        
+      
+	   
+      
+    </div>
+	
+			
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/19/Elasticsearch集群部署/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-SpringDataElasticsearch的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/19/SpringDataElasticsearch的使用/">SpringDataElasticsearch的使用</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/19/SpringDataElasticsearch的使用/" class="archive-article-date">
+  	<time datetime="2019-09-19T06:37:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-19</time>
+</a>
+        
+		
+		
+	
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1、配置SpringDataElasticsearch"><a href="#1、配置SpringDataElasticsearch" class="headerlink" title="1、配置SpringDataElasticsearch"></a>1、配置SpringDataElasticsearch</h1><p>我们在pom文件中，引入SpringDataElasticsearch的启动器：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-elasticsearch<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>然后，只需要在resources下新建application.yml文件，引入elasticsearch的host和port即可：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">  data:</span></span><br><span class="line"><span class="attr">    elasticsearch:</span></span><br><span class="line"><span class="attr">      cluster-name:</span> <span class="string">leyou-elastic</span></span><br><span class="line"><span class="attr">      cluster-nodes:</span> <span class="number">192.168</span><span class="number">.150</span><span class="number">.101</span><span class="string">:9301,192.168.150.101:9302,192.168.150.101:9303</span></span><br></pre></td></tr></table></figure>
+
+<p>需要注意的是，SpringDataElasticsearch底层使用的不是Elasticsearch提供的RestHighLevelClient，而是TransportClient，并不采用Http协议通信，而是访问elasticsearch对外开放的tcp端口，我们之前<a href>集群配置</a>中，设置的分别是：9301,9302,9303</p>
+
+      
+	   
+      
+    </div>
+	
+			
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/19/SpringDataElasticsearch的使用/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Springboot整合常用框架" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -690,148 +838,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/12/20/SSM框架整合的配置文件/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Spring的AOP编程底层实现机制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/19/Spring的AOP编程底层实现机制/">Spring的AOP编程底层实现机制</a>
-    </h1>
-  
-
-        
-        <a href="/2018/10/19/Spring的AOP编程底层实现机制/" class="archive-article-date">
-  	<time datetime="2018-10-19T02:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-19</time>
-</a>
-        
-		
-		
-	
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1、概述"><a href="#1、概述" class="headerlink" title="1、概述"></a>1、概述</h1><p>1、Spring在运行期，生成动态代理对象，不需要特殊的编译器.</p>
-<p>2、Spring有两种代理方式：</p>
-        
-          <a class="article-more-a" href="/2018/10/19/Spring的AOP编程底层实现机制/#more">more >></a>
-        
-      
-	   
-      
-    </div>
-	
-			
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/10/19/Spring的AOP编程底层实现机制/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Mysql基础语句" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/13/Mysql基础语句/">Mysql基础语句</a>
-    </h1>
-  
-
-        
-        <a href="/2018/08/13/Mysql基础语句/" class="archive-article-date">
-  	<time datetime="2018-08-13T10:17:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-13</time>
-</a>
-        
-		
-		
-	
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="DDL语句"><a href="#DDL语句" class="headerlink" title="DDL语句"></a>DDL语句</h1><p>1、创建数据库</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 判断数据库是否存在并指定字符集创建</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> 数据库名 <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exists</span> 数据库名 <span class="keyword">default</span> <span class="built_in">character</span> <span class="keyword">set</span> 字符集</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2018/08/13/Mysql基础语句/#more">more >></a>
-        
-      
-	   
-      
-    </div>
-	
-			
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/13/Mysql基础语句/">展开全文 >></a>
         </p>
       
 
