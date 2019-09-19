@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hexo</title>
+  <title>分布式RPC框架Apache Dubbo  | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="1、Apache Dubbo概述1.1 Dubbo简介Apache Dubbo是一款高性能(NIO)的Java RPC框架。其前身是阿里巴巴公司开源的一个高性能、轻量级的开源Java RPC框架，可以和Spring框架无缝集成。其中RPC全称为remote procedure call，即远程过程调用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="分布式RPC框架Apache Dubbo ">
+<meta property="og:url" content="http://yoursite.com/2019/04/10/分布式RPC框架Apache-Dubbo/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1、Apache Dubbo概述1.1 Dubbo简介Apache Dubbo是一款高性能(NIO)的Java RPC框架。其前身是阿里巴巴公司开源的一个高性能、轻量级的开源Java RPC框架，可以和Spring框架无缝集成。其中RPC全称为remote procedure call，即远程过程调用">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://hexo-blog66.oss-cn-shanghai.aliyuncs.com/20190830090049.png">
+<meta property="og:image" content="https://hexo-blog66.oss-cn-shanghai.aliyuncs.com/20190830091954.png">
+<meta property="og:updated_time" content="2019-09-19T03:30:07.113Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="分布式RPC框架Apache Dubbo ">
+<meta name="twitter:description" content="1、Apache Dubbo概述1.1 Dubbo简介Apache Dubbo是一款高性能(NIO)的Java RPC框架。其前身是阿里巴巴公司开源的一个高性能、轻量级的开源Java RPC框架，可以和Spring框架无缝集成。其中RPC全称为remote procedure call，即远程过程调用">
+<meta name="twitter:image" content="https://hexo-blog66.oss-cn-shanghai.aliyuncs.com/20190830090049.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -144,16 +151,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-分布式RPC框架Apache-Dubbo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-分布式RPC框架Apache-Dubbo" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/10/分布式RPC框架Apache-Dubbo/">分布式RPC框架Apache Dubbo </a>
+    <h1 class="article-title" itemprop="name">
+      分布式RPC框架Apache Dubbo 
     </h1>
   
 
@@ -164,17 +169,87 @@
         
 		
 		
+        <span class="archive-article-date">
+            本文阅读量 <span id="busuanzi_value_page_pv"></span>次
+        </span>
+    
 	
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="1、Apache-Dubbo概述"><a href="#1、Apache-Dubbo概述" class="headerlink" title="1、Apache Dubbo概述"></a>1、Apache Dubbo概述</h1><h3 id="1-1-Dubbo简介"><a href="#1-1-Dubbo简介" class="headerlink" title="1.1 Dubbo简介"></a>1.1 Dubbo简介</h3><p>Apache Dubbo是一款高性能(NIO)的Java RPC框架。其前身是阿里巴巴公司开源的一个高性能、轻量级的开源Java RPC框架，可以和Spring框架无缝集成。其中RPC全称为remote procedure call，即<strong>远程过程调用</strong></p>
-        
-          <a class="article-more-a" href="/2019/04/10/分布式RPC框架Apache-Dubbo/#more">more >></a>
-        
+<a id="more"></a>
+
+<h3 id="1-2-Dubbo架构调用"><a href="#1-2-Dubbo架构调用" class="headerlink" title="1.2 Dubbo架构调用"></a>1.2 Dubbo架构调用</h3><p>​        <img src="https://hexo-blog66.oss-cn-shanghai.aliyuncs.com/20190830090049.png" alt></p>
+<ol start="0">
+<li>服务容器<strong>Container</strong>负责启动，加载，运行服务提供者。</li>
+<li>服务提供者<strong>Provider</strong>在启动时，向注册中心<strong>Registry</strong>注册自己提供的服务。</li>
+<li>服务消费者<strong>Consumer</strong>在启动时，向注册中心<strong>Registry</strong>订阅自己所需的服务。</li>
+<li>注册中心<strong>Registry</strong>返回服务提供者<strong>Provider</strong>地址列表给消费者<strong>Consumer</strong>，如果有变更，注册中心<strong>Registry</strong>将基于长连接推送变更数据给消费者<strong>Consumer</strong>。</li>
+<li>服务消费者<strong>Consumer</strong>，从提供者<strong>Provider</strong>地址列表中，基于软负载均衡算法，选一台提供者进行调用，如果调用失败，再选另一台调用。</li>
+<li>服务消费者和提供者<strong>Provider</strong>，在内存中累计调用次数和调用时间，定时每分钟发送一次统计数据到监控中心<strong>Monitor</strong>。</li>
+</ol>
+<p>Consumer和Provider中的实现：</p>
+<ol>
+<li>服务代理层（<strong>Proxy</strong>）：服务接口透明代理，生成服务的客户端Stub和服务器端Skeleton，以ServiceProxy为中心，扩展接口为ProxyFactory。</li>
+<li>集群层（<strong>Cluster</strong>）：封装多个提供者的路由及负载均衡，并桥接注册中心，以Invoker为中心，扩展接口为Cluster、Directory、Router和LoadBalance。将多个服务提供方组合为一个服务提供方，实现对服务消费方来透明，只需要与一个服务提供方进行交互。</li>
+<li>远程调用层（<strong>Protocol</strong>）：封将RPC调用，以Invocation和Result为中心，扩展接口为Protocol、Invoker和Exporter。Protocol是服务域，它是Invoker暴露和引用的主功能入口，它负责Invoker的生命周期管理。Invoker是实体域，它是Dubbo的核心模型，其它模型都向它靠扰，或转换成它，它代表一个可执行体，可向它发起invoke调用，它有可能是一个本地的实现，也可能是一个远程的实现，也可能一个集群实现。</li>
+<li>服务接口层（<strong>Service</strong>）：该层是与实际业务逻辑相关的，根据服务提供方和服务消费方的业务设计对应的接口和实现。</li>
+</ol>
+<h1 id="2、服务注册中心Zookeeper"><a href="#2、服务注册中心Zookeeper" class="headerlink" title="2、服务注册中心Zookeeper"></a>2、服务注册中心Zookeeper</h1><p><img src="https://hexo-blog66.oss-cn-shanghai.aliyuncs.com/20190830091954.png" alt></p>
+<p>流程说明：</p>
+<ul>
+<li>服务提供者(Provider)启动时: 向 <code>/dubbo/com.foo.BarService/providers</code> 目录下写入自己的 URL 地址</li>
+<li>服务消费者(Consumer)启动时: 订阅 <code>/dubbo/com.foo.BarService/providers</code> 目录下的提供者 URL 地址。并向 <code>/dubbo/com.foo.BarService/consumers</code> 目录下写入自己的 URL 地址</li>
+<li>监控中心(Monitor)启动时: 订阅 <code>/dubbo/com.foo.BarService</code> 目录下的所有提供者和消费者 URL 地址</li>
+</ul>
+<h1 id="3、-Dubbo快速入门配置文件"><a href="#3、-Dubbo快速入门配置文件" class="headerlink" title="3、 Dubbo快速入门配置文件"></a>3、 Dubbo快速入门配置文件</h1><h3 id="3-1服务方开发"><a href="#3-1服务方开发" class="headerlink" title="3.1服务方开发"></a>3.1服务方开发</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="comment">&lt;!--suppress SpringFacetInspection --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="attr">xmlns:duboo</span>=<span class="string">"http://code.alibabatech.com/schema/dubbo"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 注册  协议和port   端口默认是20881 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">duboo:protocol</span> <span class="attr">name</span>=<span class="string">"dubbo"</span> <span class="attr">port</span>=<span class="string">"20881"</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 当前应用名称，用于注册中心计算应用间依赖关系，注意：消费者和提供者应用名不要一样 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">duboo:application</span> <span class="attr">name</span>=<span class="string">"dubbodemo_provider"</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 连接服务注册中心zookeeper ip为zookeeper所在服务器的ip地址--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">duboo:registry</span> <span class="attr">address</span>=<span class="string">"zookeeper://127.0.0.1:2181"</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 扫描指定包，加入@Service注解的类会被发布为服务  --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">duboo:annotation</span> <span class="attr">package</span>=<span class="string">"XXX.XXX.service"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-2消费方开发"><a href="#3-2消费方开发" class="headerlink" title="3.2消费方开发"></a>3.2消费方开发</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="comment">&lt;!--suppress SpringFacetInspection --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="attr">xmlns:duboo</span>=<span class="string">"http://code.alibabatech.com/schema/dubbo"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">&lt;!-- 当前应用名称，用于注册中心计算应用间依赖关系，注意：消费者和提供者应用名不要一样 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dubbo:application</span> <span class="attr">name</span>=<span class="string">"dubbodemo_consumer"</span>&gt;</span><span class="tag">&lt;/<span class="name">dubbo:application</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 连接服务注册中心zookeeper ip为zookeeper所在服务器的ip地址--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dubbo:registry</span> <span class="attr">address</span>=<span class="string">"zookeeper://127.0.0.1:2181"</span>&gt;</span><span class="tag">&lt;/<span class="name">dubbo:registry</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 扫描的方式暴露接口  --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dubbo:annotation</span> <span class="attr">package</span>=<span class="string">"XXX.XXX.controller"</span>&gt;</span><span class="tag">&lt;/<span class="name">dubbo:annotation</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--配置消费方超时时间</span></span><br><span class="line"><span class="comment">        timeout属性：设置超时时间为10分钟</span></span><br><span class="line"><span class="comment">        check属性：服务消费方启动时是否检查服务提供方</span></span><br><span class="line"><span class="comment">        check=false 不检查服务提供方，开发阶段建议设置为false</span></span><br><span class="line"><span class="comment">        check=true 启动时检查服务提供方，如果服务提供方没有启动则报错--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dubbo:consumer</span> <span class="attr">timeout</span>=<span class="string">"600000"</span> <span class="attr">check</span>=<span class="string">"false"</span>&gt;</span><span class="tag">&lt;/<span class="name">dubbo:consumer</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="4、Dubbo的负载均衡和集群容错"><a href="#4、Dubbo的负载均衡和集群容错" class="headerlink" title="4、Dubbo的负载均衡和集群容错"></a>4、Dubbo的负载均衡和集群容错</h1><h3 id="4-1负载均衡"><a href="#4-1负载均衡" class="headerlink" title="4.1负载均衡"></a>4.1负载均衡</h3><p>负载均衡（Load Balance）：其实就是将请求分摊到多个操作单元上进行执行，从而共同完成工作任务。</p>
+<h6 id="Random-LoadBalance-random-默认"><a href="#Random-LoadBalance-random-默认" class="headerlink" title="Random LoadBalance (random) 默认"></a>Random LoadBalance (random) 默认</h6><h6 id="RoundRobin-LoadBalance-roundrobin-循环"><a href="#RoundRobin-LoadBalance-roundrobin-循环" class="headerlink" title="RoundRobin LoadBalance (roundrobin)循环"></a>RoundRobin LoadBalance (roundrobin)循环</h6><h6 id="LeastActive-LoadBalance-leastactive-最小活跃"><a href="#LeastActive-LoadBalance-leastactive-最小活跃" class="headerlink" title="LeastActive LoadBalance (leastactive)最小活跃"></a>LeastActive LoadBalance (leastactive)最小活跃</h6><h6 id="ConsistentHash-LoadBalance-consistenthash-一致性-Hash"><a href="#ConsistentHash-LoadBalance-consistenthash-一致性-Hash" class="headerlink" title="ConsistentHash LoadBalance (consistenthash)一致性 Hash"></a>ConsistentHash LoadBalance (consistenthash)一致性 Hash</h6><h3 id="4-2集群容错"><a href="#4-2集群容错" class="headerlink" title="4.2集群容错"></a>4.2集群容错</h3><p>为了避免单点故障，现在的应用通常至少会部署在两台服务器上。对于一些负载比较高的服务，会部署更多的服务器。这样，在同一环境下的服务提供者数量会大于1。对于服务消费者来说，同一环境下出现了多个服务提供者。这时会出现一个问题，服务消费者需要决定选择哪个服务提供者进行调用。另外服务调用失败时的处理措施也是需要考虑的，是重试呢，还是抛出异常，亦或是只打印异常等</p>
+<ul>
+<li>Failover Cluster - dubbo默认容错模式，失败自动切换，当出现失败，重试其它服务器。通常用于读操作，但重试会带来更长延迟。可通过retries=”2” 来设置重试次数(不含第一次)</li>
+<li>Failfast Cluster - 快速失败，只发起一次调用，失败立即报错</li>
+<li>Failsafe Cluster - 失败安全，出现异常时，直接忽略</li>
+<li>Failback Cluster - 失败自动恢复，后台记录失败请求，定时重发。通常用于消息通知操作</li>
+<li>Forking Cluster - 并行调用多个服务器，只要一个成功即返回。通常用于实时性要求较高的读操作，但需要浪费更多服务资源。可通过forks=”2” 来设置最大并行数</li>
+</ul>
+<p><strong>总结： 在实际应用中 查询语句容错策略建议使用默认Failover Cluster ，而增删改 建议使用 Failfast Cluster 或者 使用 Failover Cluster（retries=”0”） 策略 防止出现数据 重复添加等等其它问题！</strong></p>
+<h1 id="5、Dubbo的事务代理"><a href="#5、Dubbo的事务代理" class="headerlink" title="5、Dubbo的事务代理"></a>5、Dubbo的事务代理</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="comment">&lt;!--suppress SpringFacetInspection --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="attr">xmlns:tx</span>=<span class="string">"http://www.springframework.org/schema/tx"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:aop</span>=<span class="string">"http://www.springframework.org/schema/aop"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd"</span>&gt;</span></span><br><span class="line">    </span><br><span class="line"> 	<span class="comment">&lt;!--数据源--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"dataSource"</span> <span class="attr">class</span>=<span class="string">"com.alibaba.druid.pool.DruidDataSource"</span> <span class="attr">destroy-method</span>=<span class="string">"close"</span>&gt;</span></span><br><span class="line">  		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">value</span>=<span class="string">"root"</span> /&gt;</span></span><br><span class="line">  		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">value</span>=<span class="string">"root"</span> /&gt;</span></span><br><span class="line">  		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"driverClassName"</span> <span class="attr">value</span>=<span class="string">"com.mysql.jdbc.Driver"</span> /&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"url"</span> <span class="attr">value</span>=<span class="string">"jdbc:mysql://localhost:3306/test"</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--数据源--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"transactionManager"</span> <span class="attr">class</span>=<span class="string">"org.springframework.jdbc.datasource.DataSourceTransactionManager"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"dataSource"</span> <span class="attr">ref</span>=<span class="string">"dataSource"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--设置通知--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tx:advice</span> <span class="attr">id</span>=<span class="string">"myAdvice"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tx:attributes</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"*"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tx:attributes</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tx:advice</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--设置切点和切面--&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--proxy-target-class="true"开启cglib代理--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aop:config</span> <span class="attr">proxy-target-class</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">aop:pointcut</span> <span class="attr">id</span>=<span class="string">"myCut"</span> <span class="attr">expression</span>=<span class="string">"execution(* com.itheima.service.impl.*.*(..))"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">aop:advisor</span> <span class="attr">advice-ref</span>=<span class="string">"myAdvice"</span> <span class="attr">pointcut-ref</span>=<span class="string">"myCut"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">aop:config</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>使用注解配置事务</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--开启事务控制的注解支持--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tx:annotation-driven</span> <span class="attr">transaction-manager</span>=<span class="string">"transactionManager"</span> <span class="attr">proxy-target-class</span>=<span class="string">"true"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>注</strong>在Service注解中加入interfaceClass属性，指定服务的接口类型</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span>(interfaceClass = HelloService.class)</span><br></pre></td></tr></table></figure>
+
+
       
 	   
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
 	
@@ -185,16 +260,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/10/分布式RPC框架Apache-Dubbo/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/04/10/分布式RPC框架Apache-Dubbo/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/22/Docker应用部署/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Docker应用部署</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -214,656 +348,37 @@
 
 
 
-
   
-    <article id="post-Docker应用部署" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/22/Docker应用部署/">Docker应用部署</a>
-    </h1>
   
-
-        
-        <a href="/2019/03/22/Docker应用部署/" class="archive-article-date">
-  	<time datetime="2019-03-22T03:02:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-22</time>
-</a>
-        
-		
-		
-	
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1、环境应用部署"><a href="#1、环境应用部署" class="headerlink" title="1、环境应用部署"></a>1、环境应用部署</h1><h3 id="1-1-Mysql部署"><a href="#1-1-Mysql部署" class="headerlink" title="1.1 Mysql部署"></a>1.1 Mysql部署</h3><p>（1）拉取mysql镜像</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql:5.7</span><br></pre></td></tr></table></figure>
-
-<p>（2）创建容器</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -di --name=mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root mysql:5.7</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2019/03/22/Docker应用部署/#more">more >></a>
-        
-      
-	   
-      
-    </div>
-	
-			
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/22/Docker应用部署/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-    <article id="post-Docker的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+  <!-- ������City�氲װ���� -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80NTU5NS8yMjEwNg==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> Ϊ����ʹ�����������۹����뼤��JavaScript</noscript>
+</div>
+<!-- City�氲װ��������� -->
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/12/Docker的使用/">Docker的使用</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/12/Docker的使用/" class="archive-article-date">
-  	<time datetime="2019-03-12T02:23:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-12</time>
-</a>
-        
-		
-		
-	
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1、Docker简介"><a href="#1、Docker简介" class="headerlink" title="1、Docker简介"></a>1、Docker简介</h1><h3 id="1-1-什么是Docker"><a href="#1-1-什么是Docker" class="headerlink" title="1.1  什么是Docker"></a>1.1  什么是Docker</h3><p>​        <img src="https://hexo-blog66.oss-cn-shanghai.aliyuncs.com/docker1-2.png" alt></p>
-<p>​    Docker 是一个开源项目，诞生于 2013 年初，最初是 dotCloud 公司内部的一个业余项目。它基于 Google 公司推出的 Go 语言实现。 项目后来加入了 Linux 基金会，遵从了 Apache 2.0 协议，项目代码在 <a href="https://github.com/docker/docker" target="_blank" rel="noopener">GitHub</a> 上进行维护。</p>
-        
-          <a class="article-more-a" href="/2019/03/12/Docker的使用/#more">more >></a>
-        
-      
-	   
-      
-    </div>
-	
-			
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/12/Docker的使用/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Git的基础语句" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/10/Git的基础语句/">Git的基础语句</a>
-    </h1>
-  
-
-        
-        <a href="/2019/02/10/Git的基础语句/" class="archive-article-date">
-  	<time datetime="2019-02-10T15:42:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-10</time>
-</a>
-        
-		
-		
-	
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1、添加文件并提交本地仓库"><a href="#1、添加文件并提交本地仓库" class="headerlink" title="1、添加文件并提交本地仓库"></a>1、添加文件并提交本地仓库</h1><p>初始化仓库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2019/02/10/Git的基础语句/#more">more >></a>
-        
-      
-	   
-      
-    </div>
-	
-			
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/10/Git的基础语句/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Linux常用命令下" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/30/Linux常用命令下/">Linux常用命令下</a>
-    </h1>
-  
-
-        
-        <a href="/2019/01/30/Linux常用命令下/" class="archive-article-date">
-  	<time datetime="2019-01-30T03:11:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-30</time>
-</a>
-        
-		
-		
-	
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1、firewalld命令"><a href="#1、firewalld命令" class="headerlink" title="1、firewalld命令"></a>1、firewalld命令</h1><h3 id="1-1-查看防火墙状态"><a href="#1-1-查看防火墙状态" class="headerlink" title="1.1 查看防火墙状态"></a>1.1 查看防火墙状态</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status firewalld</span><br></pre></td></tr></table></figure>
-
-<h3 id="1-2-开启防火墙"><a href="#1-2-开启防火墙" class="headerlink" title="1.2 开启防火墙"></a>1.2 开启防火墙</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start firewalld</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2019/01/30/Linux常用命令下/#more">more >></a>
-        
-      
-	   
-      
-    </div>
-	
-			
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/30/Linux常用命令下/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Linux常用命令上" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/19/Linux常用命令上/">Linux常用命令上</a>
-    </h1>
-  
-
-        
-        <a href="/2019/01/19/Linux常用命令上/" class="archive-article-date">
-  	<time datetime="2019-01-19T14:12:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-19</time>
-</a>
-        
-		
-		
-	
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="文件相关命令"><a href="#文件相关命令" class="headerlink" title="文件相关命令"></a>文件相关命令</h1><h3 id="1-1-确定自己所在的位置使用命令：pwd"><a href="#1-1-确定自己所在的位置使用命令：pwd" class="headerlink" title="1.1  确定自己所在的位置使用命令：pwd"></a>1.1  确定自己所在的位置使用命令：<strong>pwd</strong></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pwd</span><br></pre></td></tr></table></figure>
-
-<h3 id="1-2-需要跳转到指定目录命令：cd"><a href="#1-2-需要跳转到指定目录命令：cd" class="headerlink" title="1.2  需要跳转到指定目录命令：cd"></a>1.2  需要跳转到指定目录命令：<strong>cd</strong></h3>
-        
-          <a class="article-more-a" href="/2019/01/19/Linux常用命令上/#more">more >></a>
-        
-      
-	   
-      
-    </div>
-	
-			
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/19/Linux常用命令上/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-SSM框架整合的配置文件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/20/SSM框架整合的配置文件/">SSM框架整合的配置文件</a>
-    </h1>
-  
-
-        
-        <a href="/2018/12/20/SSM框架整合的配置文件/" class="archive-article-date">
-  	<time datetime="2018-12-20T00:35:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-20</time>
-</a>
-        
-		
-		
-	
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1、数据库druid和日志log4j配置文件"><a href="#1、数据库druid和日志log4j配置文件" class="headerlink" title="1、数据库druid和日志log4j配置文件"></a>1、数据库druid和日志log4j配置文件</h1><p>druid.properties：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#配置数据库信息</span><br><span class="line">jdbc.driverClass=com.mysql.jdbc.Driver</span><br><span class="line">jdbc.url=jdbc:mysql://localhost:3306/mybatis</span><br><span class="line">jdbc.username=root</span><br><span class="line">jdbc.password=root</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2018/12/20/SSM框架整合的配置文件/#more">more >></a>
-        
-      
-	   
-      
-    </div>
-	
-			
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/20/SSM框架整合的配置文件/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Spring的AOP编程底层实现机制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/19/Spring的AOP编程底层实现机制/">Spring的AOP编程底层实现机制</a>
-    </h1>
-  
-
-        
-        <a href="/2018/10/19/Spring的AOP编程底层实现机制/" class="archive-article-date">
-  	<time datetime="2018-10-19T02:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-19</time>
-</a>
-        
-		
-		
-	
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1、概述"><a href="#1、概述" class="headerlink" title="1、概述"></a>1、概述</h1><p>1、Spring在运行期，生成动态代理对象，不需要特殊的编译器.</p>
-<p>2、Spring有两种代理方式：</p>
-        
-          <a class="article-more-a" href="/2018/10/19/Spring的AOP编程底层实现机制/#more">more >></a>
-        
-      
-	   
-      
-    </div>
-	
-			
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/10/19/Spring的AOP编程底层实现机制/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Mysql基础语句" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/13/Mysql基础语句/">Mysql基础语句</a>
-    </h1>
-  
-
-        
-        <a href="/2018/08/13/Mysql基础语句/" class="archive-article-date">
-  	<time datetime="2018-08-13T10:17:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-13</time>
-</a>
-        
-		
-		
-	
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="DDL语句"><a href="#DDL语句" class="headerlink" title="DDL语句"></a>DDL语句</h1><p>1、创建数据库</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 判断数据库是否存在并指定字符集创建</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> 数据库名 <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exists</span> 数据库名 <span class="keyword">default</span> <span class="built_in">character</span> <span class="keyword">set</span> 字符集</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2018/08/13/Mysql基础语句/#more">more >></a>
-        
-      
-	   
-      
-    </div>
-	
-			
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/13/Mysql基础语句/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-阿里云部署web项目" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/01/阿里云部署web项目/">阿里云部署web项目</a>
-    </h1>
-  
-
-        
-        <a href="/2018/08/01/阿里云部署web项目/" class="archive-article-date">
-  	<time datetime="2018-08-01T09:24:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-01</time>
-</a>
-        
-		
-		
-	
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-前期准备"><a href="#1-前期准备" class="headerlink" title="1.前期准备"></a>1.前期准备</h1><p>1.注册购买阿里云服务器并且系统镜像安装CentOS获取外网ip</p>
-<p>2.设置运行服务器访问的端口:mysql:3306,redis:6379,tomcat:8080</p>
-        
-          <a class="article-more-a" href="/2018/08/01/阿里云部署web项目/#more">more >></a>
-        
-      
-	   
-      
-    </div>
-	
-			
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/01/阿里云部署web项目/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
 
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
+
+  
+
+  
+
   
 
 
@@ -891,8 +406,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hexo</title>
+  <title>Hexo博客搭建 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="前期准备1  NOde.js的安装 Node.js下载，进入官网下载符合你系统的Node.js软件，安装完成打开dos命令查看是否安装成功。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo博客搭建">
+<meta property="og:url" content="http://yoursite.com/2018/07/10/Hexo博客搭建/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="前期准备1  NOde.js的安装 Node.js下载，进入官网下载符合你系统的Node.js软件，安装完成打开dos命令查看是否安装成功。">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-09-19T03:24:08.789Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Hexo博客搭建">
+<meta name="twitter:description" content="前期准备1  NOde.js的安装 Node.js下载，进入官网下载符合你系统的Node.js软件，安装完成打开dos命令查看是否安装成功。">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -144,37 +148,121 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-分布式RPC框架Apache-Dubbo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-Hexo博客搭建" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/10/分布式RPC框架Apache-Dubbo/">分布式RPC框架Apache Dubbo </a>
+    <h1 class="article-title" itemprop="name">
+      Hexo博客搭建
     </h1>
   
 
         
-        <a href="/2019/04/10/分布式RPC框架Apache-Dubbo/" class="archive-article-date">
-  	<time datetime="2019-04-10T00:48:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-10</time>
+        <a href="/2018/07/10/Hexo博客搭建/" class="archive-article-date">
+  	<time datetime="2018-07-10T03:02:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
 </a>
         
 		
 		
+        <span class="archive-article-date">
+            本文阅读量 <span id="busuanzi_value_page_pv"></span>次
+        </span>
+    
 	
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1、Apache-Dubbo概述"><a href="#1、Apache-Dubbo概述" class="headerlink" title="1、Apache Dubbo概述"></a>1、Apache Dubbo概述</h1><h3 id="1-1-Dubbo简介"><a href="#1-1-Dubbo简介" class="headerlink" title="1.1 Dubbo简介"></a>1.1 Dubbo简介</h3><p>Apache Dubbo是一款高性能(NIO)的Java RPC框架。其前身是阿里巴巴公司开源的一个高性能、轻量级的开源Java RPC框架，可以和Spring框架无缝集成。其中RPC全称为remote procedure call，即<strong>远程过程调用</strong></p>
-        
-          <a class="article-more-a" href="/2019/04/10/分布式RPC框架Apache-Dubbo/#more">more >></a>
-        
+        <h1 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h1><p>1  NOde.js的安装</p>
+<p><a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js下载</a>，进入官网下载符合你系统的Node.js软件，安装完成打开dos命令查看是否安装成功。</p>
+<a id="more"></a>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//查看安装版本</span></span><br><span class="line">node -v</span><br><span class="line"><span class="comment">//查看包管理器版本</span></span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+
+<p> 2  Git的安装</p>
+<p><a href="https://git-scm.com/" target="_blank" rel="noopener">git下载</a></p>
+<p>同样进入官网下载符合你系统的Git软件。</p>
+<h1 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h1><p>1  设置镜像指向淘宝(直接安装Hexo速度太慢需要翻墙)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry-https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+
+<p>正式安装Hexo</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<p>验证安装是否成功</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
+
+<p>2  初始化博客</p>
+<p>首先在本地盘中建立一个blog目录然后使用docs命令进入这个文件夹例如我在E盘新建的文件夹：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd E:\blog</span><br></pre></td></tr></table></figure>
+
+<p>进入这目录了后用Hexo生成我们的博客(可能需要一段时间)。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+
+<p>3  启动博客</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -s</span><br></pre></td></tr></table></figure>
+
+<p>如果前面安装都没问题的话会在<a href="http://localhost:4000:" target="_blank" rel="noopener">http://localhost:4000</a>访问可以看到Hexo默认Hello World页面。</p>
+<h1 id="写博客"><a href="#写博客" class="headerlink" title="写博客"></a>写博客</h1><p>1  创建一篇博客</p>
+<p>先创建一篇文章,执行以下指令即可完成文章的创建:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new 我的第一篇博文</span><br></pre></td></tr></table></figure>
+
+<p>执行完后,我们会发现在source/_post目录下出先了<code>我的第一篇博文.md</code>这个文件,我们可以用markdown编辑器对其进行编辑,不会用markdown的看<a href="http://www.jianshu.com/p/1e402922ee32/" target="_blank" rel="noopener">这里</a>。</p>
+<p>2  部署写好的博客</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<p>在<a href="http://localhost:4000:" target="_blank" rel="noopener">http://localhost:4000</a>访问查看自己的博客</p>
+<h1 id="部署到Github"><a href="#部署到Github" class="headerlink" title="部署到Github"></a>部署到Github</h1><p>1  注册<a href="https://github.com/" target="_blank" rel="noopener">github</a>账号</p>
+<p>2 新建仓库</p>
+<p>新建一个repository，repository的格式应该像下面的格式(注意一定要账号名):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">账号名.github.io</span><br></pre></td></tr></table></figure>
+
+<p>3  安装git插件</p>
+<p>要在blog目录下安装部署git插件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--save hexo-deployer-git</span><br></pre></td></tr></table></figure>
+
+<p>4  配置config.yml</p>
+<p>找到本地blog目录下的config.yml打开拉到最下面配置一下文件注意name与values之间有空格</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: 仓库地址（如https://github.com/xxx/xxx.github.io.git）</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+<h1 id="设置ssh-key"><a href="#设置ssh-key" class="headerlink" title="设置ssh-key"></a>设置ssh-key</h1><p>1 生成key</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 输入</span><br><span class="line">ssh-keygen -t rsa -C &quot;your email&quot;</span><br><span class="line"></span><br><span class="line">// 系统返回</span><br><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file in which to save the key (/c/Users/20180307/.ssh/id_rsa): </span><br><span class="line">// 这里填写你要保存key的路径和文件名，是一个绝对路径，注意该文件并没有扩展名, 如/d/git/keys/mykey</span><br></pre></td></tr></table></figure>
+
+<p>2  添加到仓库</p>
+<p>我们把上面生成的d盘中的mykey.pub的内容拷贝然后进入github，右上角点头像——&gt;Settings——&gt;SSH and GPG keys——&gt;New SSH key，将ssh key粘贴进去，点添加就可以了。</p>
+<p>3  验证ssh key是否添加成功</p>
+<p>输入以下命令出现“successfully”就代表添加成功了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
+<h1 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h1><p>输入命令行上传</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<p>全部搞定了，使用你创建的xxx.github.io输入到地址栏就可以外网登陆了。</p>
+
       
 	   
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
 	
@@ -185,16 +273,79 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/10/分布式RPC框架Apache-Dubbo/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/10/Hexo博客搭建/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2018/08/01/阿里云部署web项目/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          阿里云部署web项目
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -214,656 +365,37 @@
 
 
 
-
   
-    <article id="post-Docker应用部署" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/22/Docker应用部署/">Docker应用部署</a>
-    </h1>
   
-
-        
-        <a href="/2019/03/22/Docker应用部署/" class="archive-article-date">
-  	<time datetime="2019-03-22T03:02:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-22</time>
-</a>
-        
-		
-		
-	
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1、环境应用部署"><a href="#1、环境应用部署" class="headerlink" title="1、环境应用部署"></a>1、环境应用部署</h1><h3 id="1-1-Mysql部署"><a href="#1-1-Mysql部署" class="headerlink" title="1.1 Mysql部署"></a>1.1 Mysql部署</h3><p>（1）拉取mysql镜像</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql:5.7</span><br></pre></td></tr></table></figure>
-
-<p>（2）创建容器</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -di --name=mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root mysql:5.7</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2019/03/22/Docker应用部署/#more">more >></a>
-        
-      
-	   
-      
-    </div>
-	
-			
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/22/Docker应用部署/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-    <article id="post-Docker的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+  <!-- ������City�氲װ���� -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80NTU5NS8yMjEwNg==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> Ϊ����ʹ�����������۹����뼤��JavaScript</noscript>
+</div>
+<!-- City�氲װ��������� -->
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/12/Docker的使用/">Docker的使用</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/12/Docker的使用/" class="archive-article-date">
-  	<time datetime="2019-03-12T02:23:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-12</time>
-</a>
-        
-		
-		
-	
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1、Docker简介"><a href="#1、Docker简介" class="headerlink" title="1、Docker简介"></a>1、Docker简介</h1><h3 id="1-1-什么是Docker"><a href="#1-1-什么是Docker" class="headerlink" title="1.1  什么是Docker"></a>1.1  什么是Docker</h3><p>​        <img src="https://hexo-blog66.oss-cn-shanghai.aliyuncs.com/docker1-2.png" alt></p>
-<p>​    Docker 是一个开源项目，诞生于 2013 年初，最初是 dotCloud 公司内部的一个业余项目。它基于 Google 公司推出的 Go 语言实现。 项目后来加入了 Linux 基金会，遵从了 Apache 2.0 协议，项目代码在 <a href="https://github.com/docker/docker" target="_blank" rel="noopener">GitHub</a> 上进行维护。</p>
-        
-          <a class="article-more-a" href="/2019/03/12/Docker的使用/#more">more >></a>
-        
-      
-	   
-      
-    </div>
-	
-			
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/12/Docker的使用/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Git的基础语句" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/10/Git的基础语句/">Git的基础语句</a>
-    </h1>
-  
-
-        
-        <a href="/2019/02/10/Git的基础语句/" class="archive-article-date">
-  	<time datetime="2019-02-10T15:42:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-10</time>
-</a>
-        
-		
-		
-	
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1、添加文件并提交本地仓库"><a href="#1、添加文件并提交本地仓库" class="headerlink" title="1、添加文件并提交本地仓库"></a>1、添加文件并提交本地仓库</h1><p>初始化仓库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2019/02/10/Git的基础语句/#more">more >></a>
-        
-      
-	   
-      
-    </div>
-	
-			
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/10/Git的基础语句/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Linux常用命令下" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/30/Linux常用命令下/">Linux常用命令下</a>
-    </h1>
-  
-
-        
-        <a href="/2019/01/30/Linux常用命令下/" class="archive-article-date">
-  	<time datetime="2019-01-30T03:11:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-30</time>
-</a>
-        
-		
-		
-	
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1、firewalld命令"><a href="#1、firewalld命令" class="headerlink" title="1、firewalld命令"></a>1、firewalld命令</h1><h3 id="1-1-查看防火墙状态"><a href="#1-1-查看防火墙状态" class="headerlink" title="1.1 查看防火墙状态"></a>1.1 查看防火墙状态</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status firewalld</span><br></pre></td></tr></table></figure>
-
-<h3 id="1-2-开启防火墙"><a href="#1-2-开启防火墙" class="headerlink" title="1.2 开启防火墙"></a>1.2 开启防火墙</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start firewalld</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2019/01/30/Linux常用命令下/#more">more >></a>
-        
-      
-	   
-      
-    </div>
-	
-			
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/30/Linux常用命令下/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Linux常用命令上" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/19/Linux常用命令上/">Linux常用命令上</a>
-    </h1>
-  
-
-        
-        <a href="/2019/01/19/Linux常用命令上/" class="archive-article-date">
-  	<time datetime="2019-01-19T14:12:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-19</time>
-</a>
-        
-		
-		
-	
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="文件相关命令"><a href="#文件相关命令" class="headerlink" title="文件相关命令"></a>文件相关命令</h1><h3 id="1-1-确定自己所在的位置使用命令：pwd"><a href="#1-1-确定自己所在的位置使用命令：pwd" class="headerlink" title="1.1  确定自己所在的位置使用命令：pwd"></a>1.1  确定自己所在的位置使用命令：<strong>pwd</strong></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pwd</span><br></pre></td></tr></table></figure>
-
-<h3 id="1-2-需要跳转到指定目录命令：cd"><a href="#1-2-需要跳转到指定目录命令：cd" class="headerlink" title="1.2  需要跳转到指定目录命令：cd"></a>1.2  需要跳转到指定目录命令：<strong>cd</strong></h3>
-        
-          <a class="article-more-a" href="/2019/01/19/Linux常用命令上/#more">more >></a>
-        
-      
-	   
-      
-    </div>
-	
-			
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/19/Linux常用命令上/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-SSM框架整合的配置文件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/20/SSM框架整合的配置文件/">SSM框架整合的配置文件</a>
-    </h1>
-  
-
-        
-        <a href="/2018/12/20/SSM框架整合的配置文件/" class="archive-article-date">
-  	<time datetime="2018-12-20T00:35:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-20</time>
-</a>
-        
-		
-		
-	
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1、数据库druid和日志log4j配置文件"><a href="#1、数据库druid和日志log4j配置文件" class="headerlink" title="1、数据库druid和日志log4j配置文件"></a>1、数据库druid和日志log4j配置文件</h1><p>druid.properties：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#配置数据库信息</span><br><span class="line">jdbc.driverClass=com.mysql.jdbc.Driver</span><br><span class="line">jdbc.url=jdbc:mysql://localhost:3306/mybatis</span><br><span class="line">jdbc.username=root</span><br><span class="line">jdbc.password=root</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2018/12/20/SSM框架整合的配置文件/#more">more >></a>
-        
-      
-	   
-      
-    </div>
-	
-			
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/20/SSM框架整合的配置文件/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Spring的AOP编程底层实现机制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/19/Spring的AOP编程底层实现机制/">Spring的AOP编程底层实现机制</a>
-    </h1>
-  
-
-        
-        <a href="/2018/10/19/Spring的AOP编程底层实现机制/" class="archive-article-date">
-  	<time datetime="2018-10-19T02:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-19</time>
-</a>
-        
-		
-		
-	
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1、概述"><a href="#1、概述" class="headerlink" title="1、概述"></a>1、概述</h1><p>1、Spring在运行期，生成动态代理对象，不需要特殊的编译器.</p>
-<p>2、Spring有两种代理方式：</p>
-        
-          <a class="article-more-a" href="/2018/10/19/Spring的AOP编程底层实现机制/#more">more >></a>
-        
-      
-	   
-      
-    </div>
-	
-			
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/10/19/Spring的AOP编程底层实现机制/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Mysql基础语句" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/13/Mysql基础语句/">Mysql基础语句</a>
-    </h1>
-  
-
-        
-        <a href="/2018/08/13/Mysql基础语句/" class="archive-article-date">
-  	<time datetime="2018-08-13T10:17:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-13</time>
-</a>
-        
-		
-		
-	
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="DDL语句"><a href="#DDL语句" class="headerlink" title="DDL语句"></a>DDL语句</h1><p>1、创建数据库</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 判断数据库是否存在并指定字符集创建</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> 数据库名 <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exists</span> 数据库名 <span class="keyword">default</span> <span class="built_in">character</span> <span class="keyword">set</span> 字符集</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2018/08/13/Mysql基础语句/#more">more >></a>
-        
-      
-	   
-      
-    </div>
-	
-			
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/13/Mysql基础语句/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-阿里云部署web项目" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/01/阿里云部署web项目/">阿里云部署web项目</a>
-    </h1>
-  
-
-        
-        <a href="/2018/08/01/阿里云部署web项目/" class="archive-article-date">
-  	<time datetime="2018-08-01T09:24:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-01</time>
-</a>
-        
-		
-		
-	
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-前期准备"><a href="#1-前期准备" class="headerlink" title="1.前期准备"></a>1.前期准备</h1><p>1.注册购买阿里云服务器并且系统镜像安装CentOS获取外网ip</p>
-<p>2.设置运行服务器访问的端口:mysql:3306,redis:6379,tomcat:8080</p>
-        
-          <a class="article-more-a" href="/2018/08/01/阿里云部署web项目/#more">more >></a>
-        
-      
-	   
-      
-    </div>
-	
-			
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/01/阿里云部署web项目/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
 
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
+
+  
+
+  
+
   
 
 
@@ -891,8 +423,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
