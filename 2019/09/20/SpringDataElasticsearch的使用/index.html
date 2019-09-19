@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1、SpringDataElasticsearch介绍SpringDataElasticsearch（以后简称SDE）是Spring Data项目下的一个子模块。 特征：  支持Spring的基于@Configuration的java配置方式，或者XML配置方式 提供了用于操作ES的便捷工具类ElasticsearchTemplate。包括实现文档到POJO之间的自动智能映射。 利用Spring的">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-09-19T08:11:00.109Z">
+<meta property="og:updated_time" content="2019-09-19T08:13:36.494Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringDataElasticsearch的使用">
 <meta name="twitter:description" content="1、SpringDataElasticsearch介绍SpringDataElasticsearch（以后简称SDE）是Spring Data项目下的一个子模块。 特征：  支持Spring的基于@Configuration的java配置方式，或者XML配置方式 提供了用于操作ES的便捷工具类ElasticsearchTemplate。包括实现文档到POJO之间的自动智能映射。 利用Spring的">
@@ -184,6 +184,8 @@
 <li>基于注解的元数据映射方式，而且可扩展以支持更多不同的数据格式</li>
 <li>根据持久层接口自动生成对应实现方法，无需人工编写基本操作代码（类似mybatis，根据接口自动得到实现）。当然，也支持人工定制查询</li>
 </ul>
+<a id="more"></a>
+
 <h1 id="2、配置SpringDataElasticsearch"><a href="#2、配置SpringDataElasticsearch" class="headerlink" title="2、配置SpringDataElasticsearch"></a>2、配置SpringDataElasticsearch</h1><p>我们在pom文件中，引入SpringDataElasticsearch的启动器：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-elasticsearch<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
