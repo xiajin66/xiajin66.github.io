@@ -146,6 +146,82 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Springboot集成Mybatis-Plus(一)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/26/Springboot集成Mybatis-Plus(一)/">Springboot集成Mybatis-Plus(一)</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/26/Springboot集成Mybatis-Plus(一)/" class="archive-article-date">
+  	<time datetime="2019-09-26T05:28:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-26</time>
+</a>
+        
+		
+		
+	
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1、Mybatis-Plus-简介"><a href="#1、Mybatis-Plus-简介" class="headerlink" title="1、Mybatis-Plus 简介"></a>1、Mybatis-Plus 简介</h1><p><a href="https://github.com/baomidou/mybatis-plus" target="_blank" rel="noopener">MyBatis-Plus</a>（简称 MP）是一个 <a href="http://www.mybatis.org/mybatis-3/" target="_blank" rel="noopener">MyBatis</a> 的增强工具，在 MyBatis 的基础上只做增强不做改变，为简化开发、提高效率而生。</p>
+<h3 id="特性："><a href="#特性：" class="headerlink" title="特性："></a>特性：</h3><ul>
+<li><strong>无侵入</strong>：只做增强不做改变，引入它不会对现有工程产生影响，如丝般顺滑</li>
+<li><strong>损耗小</strong>：启动即会自动注入基本 CURD，性能基本无损耗，直接面向对象操作</li>
+<li><strong>强大的 CRUD 操作</strong>：内置通用 Mapper、通用 Service，仅仅通过少量配置即可实现单表大部分 CRUD 操作，更有强大的条件构造器，满足各类使用需求</li>
+<li><strong>支持 Lambda 形式调用</strong>：通过 Lambda 表达式，方便的编写各类查询条件，无需再担心字段写错</li>
+</ul>
+        
+          <a class="article-more-a" href="/2019/09/26/Springboot集成Mybatis-Plus(一)/#more">more >></a>
+        
+      
+	   
+      
+    </div>
+	
+			
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/26/Springboot集成Mybatis-Plus(一)/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Lombok简介、使用和利弊" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -218,19 +294,19 @@
 
 
   
-    <article id="post-SpringBoot集成通用mapper" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-SpringBoot集成通用Mapper" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/25/SpringBoot集成通用mapper/">SpringBoot集成通用mapper</a>
+      <a class="article-title" href="/2019/09/25/SpringBoot集成通用Mapper/">SpringBoot集成通用Mapper</a>
     </h1>
   
 
         
-        <a href="/2019/09/25/SpringBoot集成通用mapper/" class="archive-article-date">
+        <a href="/2019/09/25/SpringBoot集成通用Mapper/" class="archive-article-date">
   	<time datetime="2019-09-25T12:22:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-25</time>
 </a>
         
@@ -243,7 +319,7 @@
       
         <h1 id="Mapper介绍和使用"><a href="#Mapper介绍和使用" class="headerlink" title="Mapper介绍和使用"></a>Mapper介绍和使用</h1><h3 id="1-maven依赖："><a href="#1-maven依赖：" class="headerlink" title="1.maven依赖："></a>1.maven依赖：</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>tk.mybatis<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mapper-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2019/09/25/SpringBoot集成通用mapper/#more">more >></a>
+          <a class="article-more-a" href="/2019/09/25/SpringBoot集成通用Mapper/#more">more >></a>
         
       
 	   
@@ -258,7 +334,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/25/SpringBoot集成通用mapper/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/09/25/SpringBoot集成通用Mapper/">展开全文 >></a>
         </p>
       
 
@@ -777,77 +853,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/03/12/Docker的使用/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Git的基础语句" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/10/Git的基础语句/">Git的基础语句</a>
-    </h1>
-  
-
-        
-        <a href="/2019/02/10/Git的基础语句/" class="archive-article-date">
-  	<time datetime="2019-02-10T15:42:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-10</time>
-</a>
-        
-		
-		
-	
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1、添加文件并提交本地仓库"><a href="#1、添加文件并提交本地仓库" class="headerlink" title="1、添加文件并提交本地仓库"></a>1、添加文件并提交本地仓库</h1><p>初始化仓库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2019/02/10/Git的基础语句/#more">more >></a>
-        
-      
-	   
-      
-    </div>
-	
-			
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/10/Git的基础语句/">展开全文 >></a>
         </p>
       
 
